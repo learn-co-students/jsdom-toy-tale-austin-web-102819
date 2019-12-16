@@ -28,6 +28,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
       let q = document.createElement("button")
       toyDiv.classList.add("card");
       q.classList.add("like-btn");
+      q.setAttribute('id', toy.id);
       img.src = toy.image
       img.classList.add("toy-avatar")
       let z = toyDiv.appendChild(x)
@@ -40,7 +41,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
       list.appendChild(toyDiv)
       q.addEventListener("click", (event) => {
         event.preventDefault()
-        console.log("hit")
+        console.log(`${event.target.id}`)
         let more = parseInt(event.target.previousElementSibling.innerText) + 1
         fetch(`http://localhost:3000/toys/${event.target.id}`, {
           method: "PATCH",
